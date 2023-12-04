@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <main>
+    <main class="tw-flex tw-flex-col tw-items-center tw-mt-28">
         <h1 class="pageName">Temporizador online 2025</h1>
         <MarcadorTempo></MarcadorTempo>
         <BotaoEscolheAudio></BotaoEscolheAudio>
