@@ -30,17 +30,21 @@
     }
 
     const tocaAudio = () => {
+        let btn = document.getElementById('button-toca-audio')
         let inputAudio = document.getElementById('input-audio')
         let audioSrc = inputAudio.value
 
         let audio = new Audio(audioSrc)
         let durationMax = 3;
 
+        btn.disabled = true
+
         audio.addEventListener('durationchange', function() {
             if (audio.duration !== Infinity) {
                 if (audio.duration > durationMax) {
                 setTimeout(function() {
                         audio.pause();
+                        btn.disabled = false
                     }, durationMax * 1000);
                 }
             }
@@ -80,20 +84,20 @@
 <template>
     <div class="tw-mt-8 tw-flex tw-flex-col tw-items-center">
         <div class="select-audio">
-            <input type="text" id="input-audio-label"  readonly placeholder="Escolha um aúdio" @focus="mostrarOpcoes()" @blur="esconderOpcoes()">
+            <input type="text" id="input-audio-label" class="input-audio" readonly placeholder="Escolha um aúdio" @focus="mostrarOpcoes()" @blur="esconderOpcoes()">
             <input type="hidden" id="input-audio">
 
-            <div class="tw-absolute tw-hidden" id="opcoes">
-                <div v-for="audio in audios" class="tw-bg-slate-400">
-                    <div class="opcao" :id="audios.indexOf(audio)" :key="audios.indexOf(audio)" @mousedown="selecionaAudio(audios.indexOf(audio))"><p>{{ audio.nome }}</p></div>
+            <div class="tw-absolute tw-hidden tw-mt-2 tw-h-40 tw-overflow-y-scroll" id="opcoes">
+                <div v-for="audio in audios" class="opcoes-audio">
+                    <div class="opcao" :id="audios.indexOf(audio)" :key="audios.indexOf(audio)" @mousedown="selecionaAudio(audios.indexOf(audio))"><p class="tw-break-all tw-cursor-default">{{ audio.nome }}</p></div>
                 </div>
             </div>
         </div>
         <div class="tw-flex tw-flex-col tw-w-32 tw-h-24 sm:tw-flex-row sm:tw-w-72 tw-justify-around tw-mt-3">
-            <button @click="tocaAudio()" class="button">Play</button>
+            <button @click="tocaAudio()" id="button-toca-audio" class="button tw-bg-indigo-500 hover:tw-bg-indigo-700">Play</button>
             <div id="importaAudio">
                 <input type="file" id="audioPath" @change="pegarAudio()" accept="audio/*" class="tw-hidden">
-                <button @click="importarAudio()" class="button">Import Audio</button>
+                <button @click="importarAudio()" class="button tw-bg-emerald-500 hover:tw-bg-emerald-700">Import Audio</button>
             </div>
         </div>
         
@@ -102,6 +106,20 @@
 
 <style>
     .button {
-        @apply tw-bg-indigo-500 tw-text-neutral-100 tw-font-semibold tw-font-mono tw-text-sm sm:tw-text-lg tw-px-4 tw-py-1 tw-rounded-xl tw-h-10 hover:tw-bg-indigo-700 hover:tw-shadow-lg;
+        @apply tw-text-neutral-100 tw-font-semibold tw-font-mono tw-text-sm sm:tw-text-lg tw-px-4 tw-py-1 tw-rounded-xl tw-h-10 hover:tw-shadow-lg;
+    }
+    .input-audio {
+        @apply tw-text-center tw-bg-neutral-50 tw-w-52 tw-font-mono tw-text-base tw-font-semibold tw-py-2 tw-px-1 tw-rounded-sm tw-shadow-md sm:tw-w-80 sm:tw-text-xl hover:tw-cursor-pointer focus:tw-outline-none focus:tw-bg-neutral-200
+    }
+    .opcoes-audio{
+        @apply tw-text-center tw-bg-neutral-50 tw-w-52 tw-font-mono tw-text-base tw-font-semibold tw-py-2 tw-px-1 hover:tw-bg-neutral-200 sm:tw-w-80 sm:tw-text-lg
+    }
+
+    /* Scrollbar */
+    #opcoes::-webkit-scrollbar{
+        @apply tw-w-3
+    }
+    #opcoes::-webkit-scrollbar-thumb{
+        @apply tw-bg-neutral-500 tw-rounded-xl
     }
 </style>
