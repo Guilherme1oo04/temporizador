@@ -7,8 +7,8 @@
 
         input.value = input.value.replace(/[^0-9]/g, '').slice(0, 2)
 
-        if ((id == 'minutos' || id == 'segundos') && input.value > 60){
-            input.value = 60
+        if ((id == 'minutos' || id == 'segundos') && input.value > 59){
+            input.value = 59
         }
     }
 
