@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <h1 class="tw-text-xl tw-font-semibold tw-mx-2 tw-mt-10 tw-text-center sm:tw-text-3xl">Temporizador online 2025</h1>
+    <h1 class="tw-text-xl tw-font-semibold tw-mx-2 tw-mt-10 tw-text-center sm:tw-text-3xl">Temporizador online</h1>
     <main class="tw-flex tw-flex-col tw-items-center tw-mt-12">
         <MarcadorTempo></MarcadorTempo>
         <EscolheTempo></EscolheTempo>
