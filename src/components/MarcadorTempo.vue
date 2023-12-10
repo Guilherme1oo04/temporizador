@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div id="marcador-tempo" class="tw-my-2 tw-text-3xl sm:tw-text-6xl">
+    <div id="marcador-tempo" class="tw-mb-5 tw-text-3xl sm:tw-text-6xl sm:tw-mt-2">
         00:00:00
     </div>
 </template>
