@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="tw-flex tw-flex-row tw-w-52 tw-h-24 sm:tw-flex-row sm:tw-w-72 tw-justify-around tw-mt-3">
+        <div class="tw-flex tw-flex-row tw-w-52 tw-h-24 sm:tw-w-72 tw-justify-around tw-mt-3">
             <button @click="tocaAudio()" id="button-toca-audio" class="button tw-bg-indigo-500 hover:tw-bg-indigo-700">Play</button>
             <div id="importaAudio">
                 <input type="file" id="audioPath" @change="pegarAudio()" accept="audio/*" class="tw-hidden">
