@@ -46,9 +46,14 @@
                         audio.pause();
                         btn.disabled = false
                     }, durationMax * 1000);
+                } else {
+                    setTimeout(function() {
+                        audio.pause();
+                        btn.disabled = false
+                    }, audio.duration * 1000);
                 }
             }
-            });
+        });
         audio.play()
     }
 
