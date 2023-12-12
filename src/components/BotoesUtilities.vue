@@ -138,7 +138,7 @@
     </div>
     <div class="tw-flex tw-flex-row tw-w-48 sm:tw-w-64 tw-justify-around">
         <button id="botao-iniciar" class="botao-iniciar" @click="statusTemp(contagemStatus.state)">{{ contagemStatus.textLabel }}</button>
-        <button id="botao-restart" class="botao-reiniciar" @click="reiniciarTemp()">Restart</button>
+        <button id="botao-restart" class="botao-reiniciar" @click="reiniciarTemp()">Reset</button>
     </div>
 </template>
 
